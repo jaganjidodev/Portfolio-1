@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jagan Jido| Frontend Developer Portfolio</title>
+
+  <!--
+    ============================================================
+    FAVICON
+    Replace /assets/icons/favicon.png with your own small icon.
+    Recommended size: 32x32 or 64x64 px.
+    ============================================================
+  -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+
+  <!-- Google Font: Poppins for headings, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icon font (Font Awesome) used for social icons, buttons, and skill cards -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Main stylesheet (layout, colors, components) -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Responsive stylesheet (media queries) - loaded AFTER style.css so it can override -->
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       This stays fixed at the top and becomes "sticky" via JS/CSS.
+       To add/remove a nav link, edit both the <ul> here AND the
+       matching section id below.
+  ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#hero" class="navbar__logo">
+        <!-- Replace "YN" with your own initials or a small logo image -->
+        JK<span class="navbar__logo-dot">.</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <nav class="navbar__nav" id="navLinks">
+        <ul>
+          <li><a href="#hero" class="nav-link active-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#resume" class="nav-link">Resume</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <!-- Dark/Light mode toggle button. JS swaps the icon and toggles a class on <body> -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Hamburger button, only visible on mobile (see responsive.css) -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO SECTION
+       First thing visitors see. Update the name, title, intro text,
+       profile photo, resume link, and button links below.
+  ============================================================ -->
+  <section id="hero" class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="hero__greeting">Hi, my name is</p>
+
+        <!-- Replace with your Full Name -->
+        <h1 class="hero__name">Jagan Jido</h1>
+
+        <!-- Replace with your Professional Title -->
+        <h2 class="hero__title">Frontend Web Developer</h2>
+
+        <!-- Replace with your Short Introduction (2-3 sentences about you) -->
+        <p class="hero__intro">
+          I'm a junior frontend developer who loves turning ideas into clean,
+          responsive websites. I'm currently learning React and always looking
+          for new projects to build and learn from.
+        </p>
+
+        <div class="hero__buttons">
+          <!-- Replace with your Resume file path (already linked to assets/resume.pdf) -->
+          <a href="/assets/Resume.pdf" download class="btn btn--primary">
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+          <a href="#projects" class="btn btn--outline">View Projects</a>
+          <a href="#contact" class="btn btn--outline">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero__image-wrap">
+        <!-- Replace with your Profile Photo. Recommended: square image, 500x500px+ -->
+        <img
+  src="images/WhatsApp Image 2026-08-06 at 11.29.50 AM.jpeg"
+  alt="Profile photo of Jagan Jido"
+  class="hero__image"
+/>
+      </div>
+    </div>
+
+    <!-- Small scroll indicator, purely decorative -->
+    <a href="#about" class="hero__scroll-cue" aria-label="Scroll to About section">
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+       Replace the paragraph text below with your real story.
+       Keep it short: who you are, what you enjoy building, and
+       what you're currently learning.
+  ============================================================ -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2 class="section__heading"><span>01.</span> About Me</h2>
+
+      <div class="about__grid">
+        <div class="about__text">
+          <!-- Replace this paragraph with your real "About Me" content -->
+          <p>
+            Hello! I'm Jagan Jido, a Frontend Developer based in Bengaluru, India.I hold a Bachelor of Computer Applications (BCA) and am passionate about building modern, responsive, and user-friendly websites. I enjoy creating interactive web experiences using HTML, CSS, and JavaScript while continuously improving my frontend development skills.
+
+          </p>
+          <p>
+           I've built projects including a Personal Portfolio, an E-commerce Website, and a Weather App, which have strengthened my knowledge of responsive design, DOM manipulation, API integration, and clean, maintainable code.
+          </p>
+          <p>
+            I'm currently learning React.js and modern frontend development practices. I'm eager to contribute to real-world projects, continue learning from experienced developers, and grow as a Frontend Developer.
+          </p>
+
+          <!-- Optional: quick list of things you enjoy / are focused on -->
+          <ul class="about__list">
+            <li><i class="fa-solid fa-check"></i> Writing clean, semantic HTML</li>
+            <li><i class="fa-solid fa-check"></i> Building responsive layouts</li>
+            <li><i class="fa-solid fa-check"></i> Practicing vanilla JavaScript daily</li>
+            <li><i class="fa-solid fa-check"></i> Currently learning React</li>
+          </ul>
+        </div>
+
+        <div class="about__image-wrap">
+          <!-- Optional second photo (workspace, coding setup, etc.). Replace or remove. -->
+         <!-- <img
+            src="assets/images/about-placeholder.jpg"
+            alt="Photo related to Your Name"
+            class="about__image"
+          />
+          -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS SECTION
+       Each <div class="skill-card"> is one skill. To add a new
+       skill, copy a card and change the icon class + text.
+       Icons come from Font Awesome (https://fontawesome.com/icons)
+  ============================================================ -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <h2 class="section__heading"><span>02.</span> Skills</h2>
+      <p class="section__subheading">Technologies and tools I work with</p>
+
+      <div class="skills__grid">
+        <div class="skill-card">
+          <i class="fa-brands fa-html5 skill-card__icon" style="color:#e34f26"></i>
+          <p>HTML5</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-css3-alt skill-card__icon" style="color:#264de4"></i>
+          <p>CSS3</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-mobile-screen-button skill-card__icon" style="color:#38bdf8"></i>
+          <p>Responsive Design</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-arrows-left-right skill-card__icon" style="color:#22c55e"></i>
+          <p>Flexbox</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-table-cells skill-card__icon" style="color:#a855f7"></i>
+          <p>CSS Grid</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-js skill-card__icon" style="color:#f0db4f"></i>
+          <p>JavaScript</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-git-alt skill-card__icon" style="color:#f05032"></i>
+          <p>Git</p>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-github skill-card__icon"></i>
+          <p>GitHub</p>
+        </div>
+        <div class="skill-card skill-card--learning">
+          <i class="fa-brands fa-react skill-card__icon" style="color:#61dafb"></i>
+          <p>React <span class="badge">Learning</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECTS SECTION
+       Each project is a "project-card". To replace a placeholder
+       project with a real one later:
+        1. Replace the image in the <img src="..."> tag.
+        2. Replace the title and description text.
+        3. Update the GitHub and Live Demo href links.
+        4. Update the tech tags list if needed.
+       You can copy an entire .project-card block to add a 4th project.
+  ============================================================ -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <h2 class="section__heading"><span>03.</span> Projects</h2>
+      <p class="section__subheading">A few things I've built while learning</p>
+
+      <div class="projects__grid">
+
+        <!-- ==================== PROJECT 1 ==================== -->
+        <article class="project-card">
+          <!-- Replace project screenshot -->
+          <div class="project-card__image-wrap">
+            <img
+              src="assets/screenshots/project-1-placeholder.jpg"
+              alt="Screenshot of Personal Portfolio Website project"
+              class="project-card__image"
+            />
+          </div>
+          <div class="project-card__body">
+            <!-- Replace project title -->
+            <h3 class="project-card__title">Personal Portfolio Website</h3>
+            <!-- Replace project description -->
+            <p class="project-card__desc">
+              This very portfolio site — built from scratch with semantic
+              HTML5, custom CSS (Flexbox + Grid), and vanilla JavaScript.
+              Features a dark mode toggle, mobile navigation, and form
+              validation.
+            </p>
+            <ul class="project-card__tags">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="project-card__links">
+              <!-- Replace GitHub repository URL -->
+              <a href="https://github.com/jaganjidodev/Portfolio-1" target="_blank" rel="noopener" class="btn btn--small btn--outline">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <!-- Replace Live Demo URL -->
+              <a href=" https://jaganjidodev.github.io/Portfolio-1/" target="_blank" rel="noopener" class="btn btn--small btn--primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== PROJECT 2 ==================== -->
+        <!-- PLACEHOLDER: replace with your real Weather App once it's built -->
+        <article class="project-card">
+          <div class="project-card__image-wrap">
+            <img
+              src="assets/screenshots/project-2-placeholder.jpg"
+              alt="Screenshot of Weather App project"
+              class="project-card__image"
+            />
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">Weather App</h3>
+            <!-- Replace project description -->
+            <p class="project-card__desc">
+              A simple weather app that fetches live data from a public
+              weather API and displays current conditions and a short
+              forecast for any city the user searches for.
+            </p>
+            <ul class="project-card__tags">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>Weather API</li>
+            </ul>
+            <div class="project-card__links">
+              <!-- Replace GitHub repository URL -->
+              <a href="https://github.com/jaganjidodev/Weather-App" target="_blank" rel="noopener" class="btn btn--small btn--outline">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <!-- Replace Live Demo URL -->
+              <a href="https://jaganjidodev.github.io/Weather-App/" target="_blank" rel="noopener" class="btn btn--small btn--primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== PROJECT 3 ==================== -->
+        <!-- PLACEHOLDER: replace with your real E-Commerce Website once it's built -->
+        <article class="project-card">
+          <div class="project-card__image-wrap">
+            <img
+              src="assets/screenshots/project-3-placeholder.jpg"
+              alt="Screenshot of E-Commerce Website project"
+              class="project-card__image"
+            />
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">E-Commerce Website</h3>
+            <!-- Replace project description -->
+            <p class="project-card__desc">
+              A front-end e-commerce demo with a product listing page, a
+              shopping cart, and quantity controls. Cart data is saved in
+              the browser using Local Storage so it persists on refresh.
+            </p>
+            <ul class="project-card__tags">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>Local Storage</li>
+            </ul>
+            <div class="project-card__links">
+              <!-- Replace GitHub repository URL -->
+              <a href="#" target="_blank" rel="noopener" class="btn btn--small btn--outline">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+              <!-- Replace Live Demo URL -->
+              <a href="#" target="_blank" rel="noopener" class="btn btn--small btn--primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EDUCATION SECTION
+       Replace with your real school/course info. Copy the
+       .timeline-item block to add more entries.
+  ============================================================ -->
+  <section id="education" class="section education">
+    <div class="container">
+      <h2 class="section__heading"><span>04.</span> Education</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-item__dot"></div>
+          <div class="timeline-item__content">
+            <!-- Replace with your degree/course name -->
+            <h3>(BCA) Bachelor of Computer Applications</h3>
+            <!-- Replace with your school/university name -->
+            <p class="timeline-item__place">R.B.A.N.M.'s First Grade College, Bengaluru</p>
+            <!-- Replace with your dates -->
+            <p class="timeline-item__date">2023 — 2026</p>
+            <p>
+              Studied programming fundamentals, database management systems, software engineering, web technologies, and computer applications. Built practical projects using HTML, CSS, and JavaScript to strengthen frontend development skills.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-item__dot"></div>
+          <div class="timeline-item__content">
+          
+            <!-- Replace with a course/certificate name -->
+            <h3>Frontend Development Certification</h3>
+            <!-- Replace with the platform/provider name -->
+            <p class="timeline-item__place">Online Learning Platform</p>
+            <p class="timeline-item__date">2024</p>
+            <p>
+              Completed a hands-on course covering responsive design,
+              Flexbox, CSS Grid, and modern JavaScript (ES6+).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESUME SECTION
+       Replace assets/resume.pdf with your actual resume file
+       (keep the same filename, or update the href below).
+  ============================================================ -->
+  <section id="resume" class="section resume">
+    <div class="container resume__inner">
+      <h2 class="section__heading"><span>05.</span> Resume</h2>
+      <p class="section__subheading">
+        Want the full picture of my experience and education?
+      </p>
+      <a href="assets/resume.pdf" download class="btn btn--primary"></a>
+        <i class="fa-solid fa-download"></i> Download My Resume (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT SECTION
+       The form below is validated with JavaScript (see js/script.js).
+       NOTE: this form does not actually send emails by default since
+       that requires a backend or a service like Formspree/EmailJS.
+       See README.md for instructions on connecting a real email service.
+  ============================================================ -->
+  <section id="contact" class="section contact">
+    <div class="container contact__inner">
+      <h2 class="section__heading"><span>06.</span> Contact Me</h2>
+      <p class="section__subheading">
+        Have a question or want to work together? Send me a message.
+      </p>
+
+      <div class="contact__grid">
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" />
+            <span class="form-error" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+            <span class="form-error" id="emailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..."></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+
+          <!-- Success message shown by JS after valid submit -->
+          <p class="form-success" id="formSuccess">
+            Thanks for your message! (This is a demo form — see README.md to connect a real email service.)
+          </p>
+        </form>
+
+        <div class="contact-info">
+          <p>Or reach me directly:</p>
+          <ul>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <!-- Replace with your Email -->
+              <a href="mailto:itsjaganjido@gmail.com">itsjaganjido@gmail.com</a>
+            </li>
+            <li>
+            <li>
+              <i class="fa-brands fa-github"></i>
+              <!-- Replace with your GitHub URL -->
+              <a href="https://github.com/jaganjidodev" target="_blank" rel="noopener">github.com/jaganjidodev</a>
+            </li>
+            <li>
+              <i class="fa-brands fa-linkedin"></i>
+              <!-- Replace with your LinkedIn URL -->
+              <a href="https://linkedin.com/in/jagan-jido-490a09420" target="_blank" rel="noopener">linkedin.com/in/jagan-jido-490a09420</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       Update the social links (same as contact section) and the
+       year is set automatically by JavaScript below.
+  ============================================================ -->
+  <footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__socials">
+      <a href="https://github.com/jaganjidodev" target="_blank" rel="noopener" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+
+      <a href="https://linkedin.com/in/jagan-jido-490a09420" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+
+      <a href="mailto:itsjaganjido@gmail.com" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+
+    <p>
+      &copy; <span id="currentYear"></span>
+      Jagan Jido. Built with HTML, CSS &amp; JavaScript.
+    </p>
+  </div>
+</footer>
+
+  <!-- Scroll to top button, shown after scrolling down (see script.js) -->
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Main JavaScript file -->
+  <script src="js/script.js"></script>
+</body>
+</html>

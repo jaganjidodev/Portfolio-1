@@ -1,0 +1,755 @@
+/* ================================================================
+   STYLE.CSS
+   Main stylesheet for the portfolio.
+   Organized into sections — use Ctrl+F / Cmd+F to jump to a
+   section name (e.g. "PROJECTS" or "NAVBAR").
+
+   Responsive/media-query rules live in responsive.css, which is
+   loaded AFTER this file so it can override these base styles.
+================================================================ */
+
+/* ----------------------------------------------------------------
+   1. CSS VARIABLES (DESIGN TOKENS)
+   Change colors/fonts here and they update across the whole site.
+   ---------------------------------------------------------------- */
+:root {
+  /* Colors - Light mode (default) */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-text: #1c2333;
+  --color-text-muted: #5b6373;
+  --color-border: #e3e7ef;
+
+  /* Brand accent - change this one value to re-theme the whole site */
+  --color-accent: #3457d5;
+  --color-accent-hover: #2941ad;
+  --color-accent-soft: #e8edfd;
+
+  /* Typography */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Layout */
+  --max-width: 1140px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(28, 35, 51, 0.08);
+  --shadow-md: 0 8px 24px rgba(28, 35, 51, 0.08);
+  --transition: 0.2s ease;
+}
+
+/* Dark mode variables — applied when <body> has class "dark-mode" */
+body.dark-mode {
+  --color-bg: #0f1420;
+  --color-bg-alt: #161c2c;
+  --color-surface: #1a2133;
+  --color-text: #eef1f8;
+  --color-text-muted: #9aa3b8;
+  --color-border: #2a3247;
+
+  --color-accent: #6d8cff;
+  --color-accent-hover: #8ba0ff;
+  --color-accent-soft: #202b4d;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ----------------------------------------------------------------
+   2. RESET & BASE STYLES
+   ---------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section__heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.section__heading span {
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.section__subheading {
+  color: var(--color-text-muted);
+  margin-bottom: 48px;
+  max-width: 560px;
+}
+
+/* Alternate background used by every other section for visual rhythm */
+.about,
+.education,
+.resume {
+  background-color: var(--color-bg-alt);
+}
+
+/* ----------------------------------------------------------------
+   3. BUTTONS
+   ---------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition), background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn--outline {
+  background-color: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-accent-soft);
+}
+
+.btn--small {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+
+/* ----------------------------------------------------------------
+   4. NAVBAR
+   ---------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+/* Added by JS ("scrolled" class) once the user scrolls down a bit */
+.navbar.scrolled {
+  border-bottom-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.navbar__logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.navbar__logo-dot {
+  color: var(--color-accent);
+}
+
+.navbar__nav ul {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active-link {
+  color: var(--color-accent);
+}
+
+/* Underline indicator for the active section link, animated via ::after */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background-color: var(--color-accent);
+  transition: width var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active-link::after {
+  width: 100%;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-alt);
+}
+
+/* Hamburger is hidden on desktop by default; responsive.css shows it on mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* ----------------------------------------------------------------
+   5. HERO SECTION
+   ---------------------------------------------------------------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 72px; /* offset for fixed navbar */
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero__greeting {
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.hero__name {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hero__title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.hero__intro {
+  max-width: 480px;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+}
+
+.hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hero__image-wrap {
+  justify-self: center;
+}
+
+.hero__image {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--color-accent-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text-muted);
+  font-size: 1.2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+/* ----------------------------------------------------------------
+   6. ABOUT SECTION
+   ---------------------------------------------------------------- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about__text p {
+  margin-bottom: 16px;
+  color: var(--color-text-muted);
+}
+
+.about__list {
+  margin-top: 20px;
+}
+
+.about__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+
+.about__list i {
+  color: var(--color-accent);
+}
+
+.about__image {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* ----------------------------------------------------------------
+   7. SKILLS SECTION
+   ---------------------------------------------------------------- */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px 16px;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-card__icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: var(--color-accent);
+}
+
+.skill-card p {
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ----------------------------------------------------------------
+   8. PROJECTS SECTION
+   ---------------------------------------------------------------- */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.project-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.project-card__image-wrap {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-card__title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.project-card__desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-card__tags li {
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.project-card__links {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+/* ----------------------------------------------------------------
+   9. EDUCATION SECTION (TIMELINE)
+   ---------------------------------------------------------------- */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item__dot {
+  position: absolute;
+  left: -39px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  border: 3px solid var(--color-bg-alt);
+}
+
+.timeline-item__content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.timeline-item__place {
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: 2px;
+}
+
+.timeline-item__date {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+/* ----------------------------------------------------------------
+   10. RESUME SECTION
+   ---------------------------------------------------------------- */
+.resume__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resume .section__heading,
+.resume .section__subheading {
+  text-align: center;
+}
+
+.resume .section__subheading {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----------------------------------------------------------------
+   11. CONTACT SECTION
+   ---------------------------------------------------------------- */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* Red border applied by JS when a field fails validation */
+.form-group input.input-error,
+.form-group textarea.input-error {
+  border-color: #e5484d;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: #e5484d;
+  min-height: 16px;
+}
+
+.form-success {
+  display: none; /* JS toggles this to "block" after a successful submit */
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.form-success.visible {
+  display: block;
+}
+
+.contact-info p {
+  margin-bottom: 16px;
+  color: var(--color-text-muted);
+}
+
+.contact-info ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.contact-info ul li i {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-info ul li a:hover {
+  color: var(--color-accent);
+}
+
+/* ----------------------------------------------------------------
+   12. FOOTER
+   ---------------------------------------------------------------- -- */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+
+.footer__socials a:hover {
+  color: var(--color-accent);
+}
+
+.footer p {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* ----------------------------------------------------------------
+   13. SCROLL TO TOP BUTTON
+   Hidden by default; JS adds the "visible" class after scrolling down.
+   ---------------------------------------------------------------- */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  z-index: 900;
+}
+
+#scrollTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#scrollTopBtn:hover {
+  background-color: var(--color-accent-hover);
+}
